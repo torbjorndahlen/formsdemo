@@ -244,8 +244,14 @@ app.get('/api/file', function (req, res) {
         res.send('err');
       } else {
           toString(fileStreamObject, function (err, msg) {
+            if (err) {
+              console.log("Error: " + err);
+              res.statusCode = 500;
+              res.send('err');
+            } else {
             res.statusCode = 200;
             res.json(msg);
+            }
           })
       }
     })
