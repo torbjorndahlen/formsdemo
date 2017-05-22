@@ -147,10 +147,6 @@ app.get('/api/ping', function (req, res) {
 //
 // Forms
 //
-
-//
-// ping
-//
 app.get('/api/forms', function (req, res) {
 
 		console.log('\n\n===========REQUEST===============');
@@ -169,7 +165,8 @@ app.get('/api/forms', function (req, res) {
   */
   function (err, response) {
     if (err) {
-      res.statusCode = 401;
+      console.log("Error: " + err);
+      res.statusCode = 500;
       res.send('err');
     } else {
 
@@ -188,12 +185,13 @@ app.get('/api/forms', function (req, res) {
     */
 
     console.log(formsArray);
+    res.statusCode = 200;
+    res.json('OK');
 
     }
   });
 
-  res.statusCode = 200;
-  res.json('OK');
+
 
   console.log('\n\n=========REQUEST END===============');
 });
