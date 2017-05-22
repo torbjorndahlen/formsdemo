@@ -159,36 +159,17 @@ app.get('/api/forms', function (req, res) {
   };
 
   $fh.forms.getForms(options,
-
-  /*
-  * Function executed with forms.
-  */
-  function (err, response) {
-    if (err) {
-      console.log("Error: " + err);
-      res.statusCode = 500;
-      res.send('err');
-    } else {
-
-
-
-    //An Array Of Forms Associated With The Project
-    var formsArray = response.forms;
-
-     /*
-       exampleForm: {
-        _id: <<Form Id>>,
-        name: <<Form Name>>,
-        description: <<Form Description>>
-        lastUpdatedTimestamp: <<Timestamp of when the form was last updated>>
+    function (err, response) {
+      if (err) {
+        console.log("Error: " + err);
+        res.statusCode = 500;
+        res.send('err');
+      } else {
+        var formsArray = response.forms;
+        console.log(formsArray);
+        res.statusCode = 200;
+        res.json(formsArray);
       }
-    */
-
-    console.log(formsArray);
-    res.statusCode = 200;
-    res.json('OK');
-
-    }
   });
 
 
