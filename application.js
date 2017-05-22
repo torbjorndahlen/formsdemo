@@ -200,6 +200,30 @@ app.get('/api/submissions', function (req, res) {
     console.log('\n\n=========REQUEST END===============');
 });
 
+app.get('/api/submission', function (req, res) {
+
+		console.log('\n\n===========REQUEST===============');
+		console.log('\n\nGET /api/submission');
+
+  $fh.forms.getSubmission({"submissionId": "5922f96248a5c3795643f6a1"},
+
+  function (err, submissionsObject) {
+
+    if (err) {
+      console.log("Error: " + err);
+      res.statusCode = 500;
+      res.send('err');
+    } else {
+
+      console.log(submissionsObject);
+      res.statusCode = 200;
+      res.json(submissionsObject);
+    }
+
+  });
+
+    console.log('\n\n=========REQUEST END===============');
+});
 
 
 module.exports = app;
