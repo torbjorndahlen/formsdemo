@@ -230,10 +230,10 @@ app.get('/api/submission', function (req, res) {
 app.get('/api/file/:fileGroupId', function (req, res) {
 
 		console.log('\n\n===========REQUEST===============');
-		console.log('\n\nGET /api/file/:' + req.params.fileGroupId);
+		console.log('\n\nGET /api/file/:' + req.params.fileGroupId.substring(1));
 
   var options = {
-    "_id": req.params.fileGroupId
+    "_id": req.params.fileGroupId.substring(1)
   };
 
   $fh.forms.getSubmissionFile(options,
