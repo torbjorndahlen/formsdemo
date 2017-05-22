@@ -244,7 +244,7 @@ app.get('/api/file', function (req, res) {
         res.send('err');
       } else {
             res.statusCode = 200;
-            fileStreamObject.pipe(res);
+            fileStreamObject.stream.pipe(res);
       }
     })
 });
