@@ -14,9 +14,9 @@
     viewService.getFile('5922f963909023e742b85d62').then(
         function successCallback(response) {
             // RHMAP compatibility
-            $scope.file = response.data;
+            $scope.file = 'data:image/jpeg;base64,' + response.data;
 
-                console.log('response: ' + JSON.stringify(response));
+                //console.log('response: ' + JSON.stringify(response));
               }
 
     );
