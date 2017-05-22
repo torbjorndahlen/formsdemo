@@ -8,6 +8,12 @@ angular
 
     var service = {};
 
+    service.ping = function () {
+      
+        return FHCloud.get('api/ping');
+
+    }
+
 
     return service;
 }]);

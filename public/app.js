@@ -25,11 +25,7 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
    $stateProvider
      .state('view', {
        url: "/view",
-       views: {
-         '': {
-           templateUrl: "js/view/view.html"
-         }
-       },
+       templateUrl: "js/view/view.html",
        controller: "viewController"
      });
 
