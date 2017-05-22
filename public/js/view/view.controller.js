@@ -23,7 +23,7 @@
               }
           }
     );
-    */
+    
 
     $scope.toolbarButton = function(event, caller) {
 
