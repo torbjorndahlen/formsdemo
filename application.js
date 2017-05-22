@@ -30,7 +30,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var toString = require('stream-to-string');
+var base64 = require('base64-stream');
 
 // RHMAP compatibility
 //var mbaasApi = require('fh-mbaas-api');
@@ -244,7 +244,7 @@ app.get('/api/file/:fileGroupId', function (req, res) {
         res.send('err');
       } else {
             res.statusCode = 200;
-            fileStreamObject.stream.pipe(res);
+            fileStreamObject.stream.pipe(base64.encode()).pipe(res);
       }
     })
 });

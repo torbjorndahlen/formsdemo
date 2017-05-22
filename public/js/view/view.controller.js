@@ -11,19 +11,16 @@
 
 
 
-    viewService.getFile().then(
+    viewService.getFile('5922f963909023e742b85d62').then(
         function successCallback(response) {
             // RHMAP compatibility
-              if(response.status != null && response.status != 'SUCCESS') {
-                // Handle FHCloud not calling errorCallback
-                console.log('fail: ' + JSON.stringify(response));
-              } else {
-                $scope.file = response;
-                //console.log('response: ' + JSON.stringify(response));
+            $scope.file = response;
+            
+                console.log('response: ' + JSON.stringify(response));
               }
-          }
+
     );
-    
+
 
     $scope.toolbarButton = function(event, caller) {
 
