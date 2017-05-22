@@ -145,6 +145,61 @@ app.get('/api/ping', function (req, res) {
 
 
 //
+// Forms
+//
+
+//
+// ping
+//
+app.get('/api/forms', function (req, res) {
+
+		console.log('\n\n===========REQUEST===============');
+		console.log('\n\nGET /api/forms');
+
+
+  //Get a list of forms associated with the project.
+  var options = {
+
+  };
+
+  $fh.forms.getForms(options,
+
+  /*
+  * Function executed with forms.
+  */
+  function (err, response) {
+    if (err) {
+      res.statusCode = 401;
+      res.send('err');
+    } else {
+
+
+
+    //An Array Of Forms Associated With The Project
+    var formsArray = response.forms;
+
+     /*
+       exampleForm: {
+        _id: <<Form Id>>,
+        name: <<Form Name>>,
+        description: <<Form Description>>
+        lastUpdatedTimestamp: <<Timestamp of when the form was last updated>>
+      }
+    */
+
+    console.log(formsArray);
+
+    }
+  });
+
+  res.statusCode = 200;
+  res.json('OK');
+
+  console.log('\n\n=========REQUEST END===============');
+});
+
+
+//
 // LOGIN API
 //
 /*
