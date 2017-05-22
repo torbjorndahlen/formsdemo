@@ -30,6 +30,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 var express = require('express');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var toString = require('stream-to-string');
 
 // RHMAP compatibility
 //var mbaasApi = require('fh-mbaas-api');
@@ -223,6 +224,31 @@ app.get('/api/submission', function (req, res) {
   });
 
     console.log('\n\n=========REQUEST END===============');
+});
+
+
+app.get('/api/file', function (req, res) {
+
+		console.log('\n\n===========REQUEST===============');
+		console.log('\n\nGET /api/file');
+
+  var options = {
+    "_id": "5922f963909023e742b85d62"
+  };
+
+  $fh.forms.getSubmissionFile(options,
+    function (err, fileStreamObject) {
+      if (err) {
+        console.log("Error: " + err);
+        res.statusCode = 500;
+        res.send('err');
+      } else {
+          toString(stream, function (err, msg) {
+            res.statusCode = 200;
+            res.json(msg);
+          })
+      }
+    })
 });
 
 
