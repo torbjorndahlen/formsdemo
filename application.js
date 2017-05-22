@@ -177,31 +177,28 @@ app.get('/api/forms', function (req, res) {
   console.log('\n\n=========REQUEST END===============');
 });
 
+app.get('/api/submissions', function (req, res) {
 
-//
-// LOGIN API
-//
-/*
-app.post('/api/login', jsonParser, function(req, res) {
+		console.log('\n\n===========REQUEST===============');
+		console.log('\n\nGET /api/submissions');
 
-  console.log('\n\n===========REQUEST===============');
-  console.log('\n\n/POST /api/login ' + JSON.stringify(req.body));
+  $fh.forms.getSubmissions({}, function (err, submissionsObject) {
 
-  loginController.authenticate(req.body, function(results){
-
-    if(!results) {
-      res.statusCode = 401;
-      res.send('Fel användarnamn/lösenord');
+    if (err) {
+      console.log("Error: " + err);
+      res.statusCode = 500;
+      res.send('err');
     } else {
-      res.cookie("rhmap" , "1111", {maxAge : 30 * 60 * 1000});
-      res.json(results);
+
+      console.log(submissionsObject);
+      res.statusCode = 200;
+      res.json(submissionsObject);
     }
+
   });
 
-  console.log('\n\n=========REQUEST END===============');
+    console.log('\n\n=========REQUEST END===============');
 });
-*/
-
 
 
 
