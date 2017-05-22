@@ -8,18 +8,44 @@
 
     $scope.submission = {};
 
-    var params = {};
-    $fh.forms.init(params, function(err) {
-      if (err) console.error(err);
+    var params1 = {};
+    $fh.forms.init(params1, function(err) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("forms init OK");
+      }
 
-      // Forms initialised ok if no error
     });
 
+    var params2 = {
+     "fromRemote": true
+    };
 
-    $fh.forms.getSubmissions(params, function (err, submissions) {
-      if (err) console.error(err);
+    $fh.forms.getForms(params2, function(err, forms){
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("get forms OK");
+        var formsList = forms.getFormsList();
+        console.log(formsList);
+      }
 
-      console.log('Array of completed submissions', submissions);
+
+    });
+
+    var params3 = {};
+    $fh.forms.getSubmissions(params3, function (err, submissions) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log("get submissions OK");
+        console.log('Array of completed submissions', submissions);
+        $scope.submissions = submissions;
+        $scope.apply();
+      }
+
+
     });
 
     $scope.toolbarButton = function(event, caller) {
