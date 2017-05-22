@@ -1,0 +1,31 @@
+{
+  "name": "formsdemo",
+  "version": "1.0.0",
+  "description": "formsdemo",
+  "main": "application.js",
+  "scripts": {
+    "test": "test",
+    "start": "node application.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torbjorndahlen/formsdemo.git"
+  },
+  "keywords": [
+    "md"
+  ],
+  "author": "torbjorndahlen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/torbjorndahlen/formsdemo/issues"
+  },
+  "homepage": "https://github.com/torbjorndahlen/formsdemo#readme",
+  "dependencies": {
+    "body-parser": "1.17.1",
+    "cookie-parser": "1.4.3",
+    "cors": "2.8.3",
+    "express": "4.15.2",
+    "karma": "1.6.0",
+    "fh-mbaas-api": "^6.1.8"
+  }
+}
