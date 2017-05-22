@@ -243,7 +243,7 @@ app.get('/api/file', function (req, res) {
         res.statusCode = 500;
         res.send('err');
       } else {
-          toString(stream, function (err, msg) {
+          toString(fileStreamObject, function (err, msg) {
             res.statusCode = 200;
             res.json(msg);
           })
