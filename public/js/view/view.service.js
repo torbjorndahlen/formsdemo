@@ -16,6 +16,14 @@ angular
         return FHCloud.get('api/file/:' + fileGroupId);
     }
 
+    service.getSubmission = function (submissionId) {
+        return FHCloud.get('api/submission/:' + submissionId);
+    }
+
+    service.getSubmissionList = function () {
+        return FHCloud.get('api/submissions');
+    }
+
 
     return service;
 }]);

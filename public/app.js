@@ -20,13 +20,19 @@ cmsapp.config(function($mdThemingProvider) {
 });
 
 cmsapp.config(function($stateProvider, $urlRouterProvider){
-  $urlRouterProvider.otherwise("/view");
+  $urlRouterProvider.otherwise("/viewList");
 
    $stateProvider
      .state('view', {
        url: "/view",
        templateUrl: "js/view/view.html",
-       controller: "viewController"
+       controller: "viewController",
+       params: {sub: null}
+     })
+     .state('viewList', {
+       url: "/viewList",
+       templateUrl: "js/view/view-list.html",
+       controller: "viewListController"
      });
 
    });

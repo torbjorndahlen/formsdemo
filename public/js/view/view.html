@@ -4,7 +4,7 @@
   <md-toolbar>
     <div class="md-toolbar-tools">
 
-      <h2 flex md-truncate>Toolbar</h2>
+      <h2 flex md-truncate>Forms Demo</h2>
 
       <md-button class="md-icon-button" aria-label="Button" ng-click="toolbarButton()">
         <md-icon md-svg-icon="img/ic_more_vert_18px.svg"></md-icon>
@@ -16,8 +16,21 @@
   <!-- main content -->
 
     <md-content>
+      <h2>Submission</h2>
 
-      {{submission}}
+      <p>Id: {{submission._id}}</p>
+      <p>Form Name: {{submission.formSubmittedAgainst.name}}</p>
+      <p>Submitted By: {{submission.formSubmittedAgainst.createdBy}}</p>
+      <p>Completed: {{submission.submissionCompletedTimestamp}}</p>
+
+      <h3>Form Fields</h3>
+      <div ng-repeat="field in submission.formFields">
+        <p>Field Name: {{field.fieldId.name}}</p>
+        <div ng-repeat="value in field.fieldValues">
+        <p>Field Value: {{value}}</p>
+      </div>
+        <md-divider></md-divider>
+      </div>
 
     </md-content>
 

@@ -209,7 +209,7 @@ app.get('/api/submission/:submissionId', function (req, res) {
   //$fh.forms.getSubmission({"submissionId": "5922f96248a5c3795643f6a1"},
 
   $fh.forms.getSubmission({"submissionId": req.params.submissionId.substring(1)},
-  function (err, submissionsObject) {
+  function (err, submissionObject) {
 
     if (err) {
       console.log("Error: " + err);
@@ -217,9 +217,9 @@ app.get('/api/submission/:submissionId', function (req, res) {
       res.send('err');
     } else {
 
-      console.log(submissionsObject);
+      console.log(submissionObject);
       res.statusCode = 200;
-      res.json(submissionsObject);
+      res.json(submissionObject);
     }
 
   });
