@@ -15,29 +15,38 @@
 
   $scope.file = "";
 
-
-      viewService.getFile('5922f963909023e742b85d62').then(
+// 5922f963909023e742b85d62
+      $scope.getFile = function(fileGroupId) {
+        viewService.getFile(fileGroupId).then(
           function successCallback(response) {
               // RHMAP compatibility
               $scope.file = 'data:image/jpeg;base64,' + response.data;
 
                   //console.log('response: ' + JSON.stringify(response));
                 }
+              );
+      }
 
-      );
-
-
-      viewService.getSubmission('5922f96248a5c3795643f6a1').then(
+// 5922f96248a5c3795643f6a1
+      viewService.getSubmission($scope.submission._id).then(
           function successCallback(response) {
               // RHMAP compatibility
               $scope.submission = response;
+              console.log('response: ' + JSON.stringify(response));
 
-                  //console.log('response: ' + JSON.stringify(response));
-                }
+              for(var i = 0; i < $scope.submission.formFields.length; i++) {
+
+                  if($scope.submission.formFields[i].fieldId.type === "photo") {
+                    $scope.getFile($scope.submission.formFields[i].fieldValues[0].groupId);
+                    break;
+                  }
+              }
+
+          }
 
       );
 
-    
+
 
 
     $scope.toolbarButton = function(event, caller) {
