@@ -10,3 +10,8 @@
 md-icon.ng-scope {
   color: #c62828;
 }
+
+.submission-file {
+  max-width: 200px;
+  max-height: 200px;
+}

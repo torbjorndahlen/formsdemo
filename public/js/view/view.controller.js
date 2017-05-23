@@ -6,7 +6,7 @@
   .controller('viewController', ['$mdToast', '$mdBottomSheet', '$mdSidenav', '$timeout', '$mdDialog','$rootScope', '$scope', '$state', '$sessionStorage', 'viewService',
   function ($mdToast, $mdBottomSheet, $mdSidenav, $timeout, $mdDialog, $rootScope, $scope, $state, $sessionStorage, viewService){
 
-    $scope.submissions = {};
+    $scope.submission = {};
     $scope.file = "";
 
 
@@ -21,6 +21,16 @@
 
     );
 
+
+    viewService.getSubmission('5922f96248a5c3795643f6a1').then(
+        function successCallback(response) {
+            // RHMAP compatibility
+            $scope.submission = response.data;
+
+                //console.log('response: ' + JSON.stringify(response));
+              }
+
+    );
 
     $scope.toolbarButton = function(event, caller) {
 
